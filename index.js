@@ -10,16 +10,7 @@ app.use(express.json());
 
 // Custom CORS middleware
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    "https://double-check.vercel.app/", // Your frontend URL
-    "http://localhost:5173",
-  ];
-
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
@@ -30,6 +21,7 @@ app.use((req, res, next) => {
     next();
   }
 });
+
 
 
 // API keys for GoDaddy and Name.com
