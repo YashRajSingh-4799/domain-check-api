@@ -26,6 +26,11 @@ app.use((req, res, next) => {
 const godaddyApiKey = process.env.godaddyApiKey;
 const namecomApiKey = process.env.namecomApiKey;
 
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the Double Check API");
+});
+
 // API endpoint to compare domain names
 app.post("/compare", async (req, res) => {
   try {
